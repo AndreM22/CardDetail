@@ -1,0 +1,35 @@
+.card-back-container {
+    background-image: url('/assets/images/bg-card-back.png');
+    background-size: cover;
+    border-radius: 10px;
+    color: white;
+    display: flex;
+    font-family: 'Space Grotesk', sans-serif;
+    height: 240px;
+    position: relative;
+    width: 440px;
+
+    .card-back-cvc-container {
+        bottom: 45%;
+        right: 12%;
+        position: absolute;
+
+        .card-back-cvc {
+            font-size: 16px;
+            letter-spacing: 2px;
+        }
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .card-back-container {
+        height: 155px;
+        width: 270px;
+
+        .card-back-cvc-container {
+            .card-back-cvc {
+                font-size: 12px;
+            }
+        }
+    }
+}

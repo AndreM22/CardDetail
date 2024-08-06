@@ -1,0 +1,19 @@
+<article class="card-front-container">
+    <div class="card-front-avatar"></div>
+    
+    <div class="card-front-circle"></div>
+
+    <section class="card-front-number-container">
+        <label class="card-front-number">{{ cardNumber | cardNumberFormatter }}</label>
+    </section>
+
+    <section class="card-front-name-container">
+        <label class="card-front-name">{{ cardName }}</label>
+    </section>
+
+    <section class="card-front-expiration-container">
+        <label class="card-front-exp-MM">{{ expMonth }}</label>/
+
+        <label class="card-front-exp-YY">{{ expYear }}</label>
+    </section>
+</article>

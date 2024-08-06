@@ -1,0 +1,55 @@
+<article class="card-form-container">
+    <form [formGroup]="cardForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="cardHolderName">CARD HOLDER NAME</label>
+
+            <input [ngClass]="{'submit': submitted}" id="cardHolderName" formControlName="cardHolderName"
+                placeholder="e.g. Jane Appleseed" />
+
+            <div [hidden]="!submitted || !cardHolderNameError" class="error">
+                {{ cardHolderNameError }}
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="cardNumber">CARD NUMBER</label>
+
+            <input [ngClass]="{'submit': submitted}" id="cardNumber"
+                [value]="cardForm.get('cardNumber')?.value | cardNumberFormatter" formControlName="cardNumber"
+                placeholder="e.g. 1234 5678 9123 0000" maxlength="19" (input)="onCardNumberInput($event)" />
+
+            <div [hidden]="!submitted || !cardNumberError" class="error">
+                {{ cardNumberError }}
+            </div>
+        </div>
+
+        <div class="form-group expiration-cvc">
+            <div class="exp-group">
+                <label>EXP. DATE (MM/YY)</label>
+
+                <div class="exp-inputs">
+                    <input [ngClass]="{'submit': submitted}" id="expDateMM" formControlName="expDateMM" placeholder="MM"
+                        maxlength="2" />
+                    <input [ngClass]="{'submit': submitted}" id="expDateYY" formControlName="expDateYY" placeholder="YY"
+                        maxlength="2" />
+                </div>
+
+                <div [hidden]="!submitted || !(expDateMMError || expDateYYError)" class="error">
+                    {{ expDateMMError || expDateYYError }}
+                </div>
+            </div>
+            <div class="cvc-group">
+                <label for="cvc">CVC</label>
+
+                <input [ngClass]="{'submit': submitted}" id="cvc" formControlName="cvc" placeholder="e.g. 123"
+                    maxlength="3" />
+                    
+                <div [hidden]="!submitted || !cvcError" class="error">
+                    {{ cvcError }}
+                </div>
+            </div>
+        </div>
+
+        <button type="submit">Confirm</button>
+    </form>
+</article>

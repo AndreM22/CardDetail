@@ -1,0 +1,96 @@
+.view-container {
+    display: flex;
+    height: 100vh;
+    flex-direction: row;
+    width: 100vw;
+
+    .view-background-decorator {
+        background-color: #21092F;
+        display: flex;
+        height: 100%;
+        overflow: hidden;
+        position: relative;
+        width: 40%;
+
+        .view-oval {
+            aspect-ratio: 4 / 11;
+            border-radius: 50%;
+            filter: blur(20px);
+            opacity: 0.15;
+            position: absolute;
+            transform: rotate(45deg);
+            width: 40%;
+
+            &-1 {
+                background-color: #D53AFF;
+                left: 17%;
+                top: -10%;
+            }
+
+            &-2 {
+                background-color: #FF834A;
+                left: 49%;
+                top: -5%;
+            }
+
+            &-3 {
+                background-color: #47A2FF;
+                left: 12%;
+                top: 16%;
+            }
+        }
+    }
+
+    .view-card-front {
+        left: 40%;
+        position: absolute;
+        top: 20%;
+        transform: translateX(-70%);
+    }
+
+    .view-card-back {
+        left: 40%;
+        position: absolute;
+        top: calc(20% + 279px);
+        transform: translateX(-45%);
+    }
+
+    .view-info-container {
+        align-items: center;
+        display: flex;
+        height: 100%;
+        margin-left: 15%;
+        justify-content: center;
+        width: 45%;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .view-container {
+        flex-direction: column;
+
+        .view-background-decorator {
+            height: 30%;
+            width: 100%;
+        }
+
+        .view-card-front {
+            left: 50%;
+            top: 18%;
+            transform: translateX(-60%);
+        }
+
+        .view-card-back {
+            left: 50%;
+            position: absolute;
+            top: 18%;
+            transform: translate(calc(-60% + 63px), -90px);
+        }
+
+        .view-info-container {
+            height: 70%;
+            margin: 0;
+            width: 100%;
+        }
+    }
+}
